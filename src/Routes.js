@@ -4,11 +4,13 @@ import {
 } from "react-router-dom";
 
 import Home from './components/views/Home';
+import coreui from './components/views/coreui';
+import sufee from './components/views/sufee';
 import Account from './components/views/Account';
 import Transaction from './components/views/Transaction';
 const Routes = () => (
     <Switch>
-        <Route exact path='/' component={Home}/>
+        <Route exact path='/' component={sufee}/>
         <Route exact path='/account' component={Account}/>
         <Route exact path='/transaction' component={Transaction}/>
         <Route render = { function() {

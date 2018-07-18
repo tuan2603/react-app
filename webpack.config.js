@@ -27,6 +27,27 @@ const config = {
                 use: {
                     loader: "babel-loader"
                 }
+            },
+            {
+                test: /\.css$/,
+                use: [{
+                    loader: "style-loader"
+                },
+                {
+                    loader: "css-loader" // translates CSS into CommonJS
+                }]
+            },
+            {
+                test: /\.(pdf|jpg|png|gif|svg|ico)$/,
+                use: [
+                    {
+                        loader: 'url-loader'
+                    },
+                ]
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                loader: 'file-loader',
             }
         ]
     }
