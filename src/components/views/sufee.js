@@ -1,21 +1,18 @@
 import React from 'react';
-
+import logo from '../../assets/img/brand/logo.png'
+import sygnet from '../../assets/img/brand/sygnet.png'
 class sufee extends React.Component {
     render() {
         return (
-
             <div className="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
-
-
                 <aside id="left-panel" className="left-panel">
                     <nav className="navbar navbar-expand-sm navbar-default">
-
                         <div className="navbar-header">
                             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                                 <i className="fa fa-bars"></i>
                             </button>
-                            <a className="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"/></a>
-                            <a className="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"/></a>
+                            <a className="navbar-brand" href="./"><img src={logo} alt="Logo"/></a>
+                            <a className="navbar-brand hidden" href="./"><img src={sygnet} alt="Logo"/></a>
                         </div>
 
                         <div id="main-menu" className="main-menu collapse navbar-collapse">
@@ -98,16 +95,12 @@ class sufee extends React.Component {
                 </aside>
 
                 <div id="right-panel" className="right-panel">
-
-
-                    <header id="header" className="header">
-
+                    <header id="header" className="header" style={{backgroundColor:"#272c33"}}>
                         <div className="header-menu">
-
                             <div className="col-sm-7">
                                 <a id="menuToggle" className="menutoggle pull-left"><i className="fa fa fa-tasks"></i></a>
                                 <div className="header-left">
-                                    <button className="search-trigger"><i className="fa fa-search"></i></button>
+                                    <button className="search-trigger"><i className="fa fa-search" style={{color:"#e5cc08"}}></i></button>
                                     <div className="form-inline">
                                         <form className="search-form">
                                             <input className="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search" />
@@ -117,7 +110,7 @@ class sufee extends React.Component {
 
                                     <div className="dropdown for-notification">
                                         <button className="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i className="fa fa-bell"></i>
+                                            <i className="fa fa-bell" style={{color:"#e5cc08"}}></i>
                                             <span className="count bg-danger">5</span>
                                         </button>
                                         <div className="dropdown-menu" aria-labelledby="notification">
@@ -141,7 +134,7 @@ class sufee extends React.Component {
                                         <button className="btn btn-secondary dropdown-toggle" type="button"
                                                 id="message"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i className="ti-email"></i>
+                                            <i className="ti-email" style={{color:"#e5cc08"}}></i>
                                             <span className="count bg-primary">9</span>
                                         </button>
                                         <div className="dropdown-menu" aria-labelledby="message">
