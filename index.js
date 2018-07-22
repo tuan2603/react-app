@@ -6,27 +6,19 @@ const bodyParser = require('body-parser');
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
-/// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({extended: false}));
-// parse application/json
+app.use(session({secret: 'ssshhhhh'}));
 app.use(bodyParser.json());
-app.set('trust proxy', 1);
-app.use(session({
-    secret: 'jsdf7389isacuy28',
-    resave: false,
-    saveUninitialized: true,
-    cookie: {maxAge: 1000*60*60*24}
-}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
-
+let sess;
 
 // POST /login gets urlencoded bodies
 app.post('/api/login', function (req, res) {
     let {username, password} = req.body;
     if (username === 'khoapham' && password === '123') {
-        let sessData = req.session;
-        sessData.someAttribute = username;
+        sess = req.session;
+        sess.username = username;
         return res.json({value:'dang_nhap_thanh_cong'})
     }
     res.json({value: 'dang_nhap_that bai'})
@@ -35,11 +27,13 @@ app.post('/api/login', function (req, res) {
 
 // POST /api/users gets JSON bodies
 app.get('/api/get-info', function (req, res) {
-    let someAttribute = req.session.someAttribute;
-    if (someAttribute) {
-       return res.json({value:someAttribute})
+    sess = req.session;
+    if (sess.username) {
+       return res.json({value:sess.username})
+    } else {
+        return  res.json({value: 'chua_dang_nhap'});
     }
-    res.json({value: 'chua_dang_nhap'});
+
 });
 
 // app.get('/', (req, res) => res.render('home'));
