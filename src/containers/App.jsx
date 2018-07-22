@@ -15,23 +15,16 @@ class App extends Component {
         super(props);
         autoBind(this);
     }
+
     componentDidMount(){
         const { dispatch } = this.props;
-        // checklogin().then(user => {
-        //     console.log(user);
-        //         if (user.value !== "chua_dang_nhap") {
-        //             dispatch(userActions.login(user.value));
-        //         }
-        //     });
-
-        axios.get('/api/get-info')
-            .then(res => {
-                console.log(res);
-                if(res.data.value !== 'chua_dang_nhap'){
+        checklogin().then(user => {
+            console.log(user);
+                if (user.value !== "chua_dang_nhap") {
                     dispatch(userActions.login(user.value));
                 }
-            })
-            .catch(err => console.log('LOI get-info'))
+            });
+
     }
 
     render() {

@@ -39,24 +39,15 @@ class SignIn extends Component {
         this.setState({submitted:true});
         const { dispatch } = this.props;
         let {username , password } = this.state.username;
-        // login(username,password)
-        //     .then(user => {
-        //         if (user.value === "dang_nhap_thanh_cong") {
-        //             dispatch(userActions.login(username));
-        //         } else {
-        //             alert('dang nhap that bai');
-        //         }
-        //     });
-        axios.post('/api/login', {username , password })
-            .then(res => {
-                if(res.data.value === 'dang_nhap_thanh_cong'){
+        login(username,password)
+            .then(user => {
+                if (user.value === "dang_nhap_thanh_cong") {
                     dispatch(userActions.login(username));
-                }else{
+                } else {
                     alert('dang nhap that bai');
-                    //dispatch({type: 'SHOW_NOTIFICATION', txt: 'Kiem tra lai username va password'});
                 }
-            })
-            .catch(err => console.log(err))
+            });
+
     }
 
     render() {
