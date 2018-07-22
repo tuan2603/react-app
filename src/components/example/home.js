@@ -1,12 +1,15 @@
 import React from 'react';
-import LeftSidenav from '../example/LeftSidenav';
-import Nav from '../example/Nav';
-
+import Nav from './Nav';
+import 'foundation-sites/dist/css/foundation.min.css';
+import $ from 'jquery';
+import 'foundation-sites/dist/js/foundation.min.js';
+$(document).ready(()=>{$(document).foundation()});
 
 class Home extends React.Component {
     render() {
         return (
             <div>
+                <Nav />
                 <div className="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas>
                     <div className="grid-y grid-padding-x" style={{height: "100%"}}>
                         <br/>

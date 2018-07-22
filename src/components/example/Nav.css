@@ -10,3 +10,7 @@
 .dropdown.menu a {
     background-color: transparent;
 }
+
+.active {
+    background-color: #1c7430;
+}
