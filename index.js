@@ -6,18 +6,17 @@ const bodyParser = require('body-parser');
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
-app.use(session({secret: 'ssshhhhh'}));
+app.use(session({secret: 'ssshhhhh', resave:true, saveUninitialized:true}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
-let sess;
 
 // POST /login gets urlencoded bodies
 app.post('/api/login', function (req, res) {
     let {username, password} = req.body;
     if (username === 'khoapham' && password === '123') {
-        sess = req.session;
+      let  sess = req.session;
         sess.username = username;
         return res.json({value:'dang_nhap_thanh_cong'})
     }
@@ -27,7 +26,7 @@ app.post('/api/login', function (req, res) {
 
 // POST /api/users gets JSON bodies
 app.get('/api/get-info', function (req, res) {
-    sess = req.session;
+   let  sess = req.session;
     if (sess.username) {
        return res.json({value:sess.username})
     } else {

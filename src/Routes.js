@@ -9,6 +9,7 @@ import coreui from './components/views/coreui';
 import sufee from './components/views/sufee';
 import Account from './components/example/Account';
 import Transaction from './components/example/Transaction';
+import List from './components/example/List';
 import { store } from './helpers';
 
 
@@ -20,6 +21,7 @@ const Routes = () => (
             store.getState().userReducers === null ?
                 (<Redirect to='/' />) : (< Transaction />)
         )} />
+        <Route exact path='/list'   component={List} />
         <Route render = { function() {
             return <h1>Not Found</h1>;
         }} />

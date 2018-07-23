@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as userActions from '../../actions/userActions';
+import {show_notification} from '../../actions/notifyActions';
 import {login} from '../../helpers';
 import autoBind from 'auto-bind';
-import axios from 'axios';
-
 
 
 class SignIn extends Component {
@@ -44,7 +43,7 @@ class SignIn extends Component {
                 if (user.value === "dang_nhap_thanh_cong") {
                     dispatch(userActions.login(username));
                 } else {
-                    alert('dang nhap that bai');
+                    dispatch(show_notification("dang nhap sai ten hoac mat khau"));
                 }
             });
 
