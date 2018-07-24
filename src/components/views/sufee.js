@@ -1,6 +1,14 @@
 import React from 'react';
 import logo from '../../assets/img/brand/logo.png'
 import sygnet from '../../assets/img/brand/sygnet.png'
+import '../../assets/css/normalize.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../assets/css/font-awesome.min.css';
+import '../../assets/css/themify-icons.css';
+import '../../assets/css/cs-skin-elastic.css';
+import '../../assets/css/lib/vector-map/jqvmap.min.css';
+import '../../assets/scss/style.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 class sufee extends React.Component {
     render() {
         return (

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import Routes from "../Routes";
 import {checklogin} from "../helpers";
@@ -21,12 +21,12 @@ class App extends Component {
         let xhtml =   ( notification != null) ? <Notification txt={notification} /> : null;
 
         return (
-            <Router >
+            <BrowserRouter >
                 <main>
                     {xhtml}
                     <Routes  />
                 </main>
-            </Router>
+            </BrowserRouter>
         );
     }
 

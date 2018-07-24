@@ -10,9 +10,6 @@ class Notification extends React.Component {
         super(props);
         autoBind(this);
     }
-
-
-
     render() {
         return (
             <div >

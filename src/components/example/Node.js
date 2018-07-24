@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import autoBind from "auto-bind";
 import {hide_notification} from "../../actions/notifyActions";
+import listReducers from "../../reducers/listReducers";
+import {remove_item} from "../../actions/listActions";
 
 
 
@@ -12,8 +14,8 @@ class Note extends React.Component {
     }
 
     remove(){
-        let { index, remove } = this.props;
-        remove(index);
+        let { dispatch, index } = this.props;
+        dispatch(remove_item(index));
     }
 
     render() {
@@ -31,5 +33,10 @@ class Note extends React.Component {
 
 }
 
+let  mapStateToProps = (state) => {
+    return {
+        menu: state.listReducers
+    };
+};
 
-export default Note;
+export default connect(mapStateToProps)(Note);

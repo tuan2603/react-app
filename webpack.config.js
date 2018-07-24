@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 //Thư mục sẽ chứa tập tin được biên dịch
-const BUILD_DIR = path.resolve(__dirname, 'public');
+const BUILD_DIR = path.resolve(__dirname, 'build');
 //Thư mục chứa dự án - các component React
 const APP_DIR = path.resolve(__dirname, 'src');
 
@@ -10,7 +10,7 @@ const config = {
     entry: APP_DIR + '/index.js',
     output: {
         path: BUILD_DIR,
-        filename: 'bundle.js'
+        filename: 'main.js'
     },
     resolve: {
         extensions: ['.js', '.jsx']

@@ -10,6 +10,7 @@ app.use(session({secret: 'ssshhhhh', resave:true, saveUninitialized:true}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
+app.use(express.static('build'));
 
 
 // POST /login gets urlencoded bodies
@@ -35,13 +36,15 @@ app.get('/api/get-info', function (req, res) {
 
 });
 
-// app.get('/', (req, res) => res.render('home'));
+
 app.listen(3000, function () {
     console.log('server start port 3000');
 });
 
+
+
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 
